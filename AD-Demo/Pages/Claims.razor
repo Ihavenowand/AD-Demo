@@ -36,8 +36,16 @@
             <p>Not Administrator</p>
         }
         
+        <AuthorizeView Roles="user, administrator" Context="context1">
+            <Authorized>
+                <p> button is visible</p>
+            </Authorized>
+            <NotAuthorized>
+                <p>no button</p>
+            </NotAuthorized>
+        </AuthorizeView>
         
-        <AuthorizeView Policy="TestApplication" Context="context1">
+        @*<AuthorizeView Policy="TestApplication" Context="context1">
             <Authorized>
                 <p> This is visible because of the TestApplication Group Membership</p>
             </Authorized>
@@ -54,7 +62,7 @@
             <NotAuthorized>
                 <p>User is not in the DatabaseAccess Group</p>
             </NotAuthorized>
-        </AuthorizeView>
+        </AuthorizeView>*@
     </Authorized>
 </AuthorizeView>
 
