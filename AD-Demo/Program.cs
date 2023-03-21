@@ -19,12 +19,12 @@ builder.Services.AddMsalAuthentication<RemoteAuthenticationState, CustomUserAcco
     options.UserOptions.RoleClaim = "role";
 }).AddAccountClaimsPrincipalFactory<RemoteAuthenticationState, CustomUserAccount, CustomAccountFactory>();
 
-builder.Services.AddAuthorizationCore(config =>
+/*builder.Services.AddAuthorizationCore(config =>
 {
     // Define the policies for access control
     // Azure AD provides a group claim for each group the user is a member of
     // each group has a unique ID which is immutable.
-    config.AddPolicy("DatabaseAccess", builder =>
+    /*config.AddPolicy("DatabaseAccess", builder =>
         // Check the group claim contains one of the following IDs (Multiple values can be added)
         builder
             .RequireAuthenticatedUser()
@@ -35,7 +35,9 @@ builder.Services.AddAuthorizationCore(config =>
         builder
             .RequireAuthenticatedUser()
             .RequireClaim("role", "administrator")
-    );
-});
+    );#1#
+});*/
+
+builder.Services.AddAuthorizationCore();
 
 await builder.Build().RunAsync();
